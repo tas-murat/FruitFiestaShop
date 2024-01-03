@@ -1,5 +1,9 @@
 # FruitFiestaShop Microservices Projesi
 
+## Kullanılan Teknolojiler
+
+Asp.net Core 7,Entity Framework Core, Microsoft Identity, Azure Servis Bus, Serilog,JWT Token, Clean Architecture, MediatR, GRPC, Ocelot,FluentValidation,AutoMapper
+
 ## Auth Servisi
 
 **Tanım:** Bu servis, Microsoft Identity kullanarak kullanıcı yönetimi, giriş ve kayıt işlemlerini yönetir. Asp.net Core 7 ile geliştirilmiştir.
