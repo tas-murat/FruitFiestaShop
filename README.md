@@ -1,1 +1,26 @@
-# FruitFiestaShop
+FruitFiestaShop Microservices Projesi
+Auth Servisi
+Tanım: Bu servis, Microsoft Identity kullanarak kullanıcı yönetimi, giriş ve kayıt işlemlerini yönetir. Asp.net Core 7 ile geliştirilmiştir.
+
+Özellikler:
+
+Yeni bir kullanıcı kaydolduğunda, Azure Servis Bus üzerinde bir kuyruğa kullanıcı bilgileri gönderilir.
+Kullanıcı bilgileri, Email Servisi tarafından Azure Servis Bus'tan alınarak ilgili işlemler gerçekleştirilir.
+Giriş işlemlerinde JWT Token kullanılmıştır.
+Discount Servisi
+Tanım: Bu servis, kupon işlemlerini yöneten bir servistir. Clean Architecture ve MediatR tasarım deseni ile geliştirilmiştir. Asp.net Core 7 ve Entity Framework Core kullanılmıştır.
+
+Email Servisi
+Tanım: Email servisi, Azure Servis Bus üzerindeki kuyruktaki işlemleri tespit eder ve gerekli işlemleri gerçekleştirir.
+
+GrpcCoupon Servisi
+Tanım: Bu servis, GRPC server projesidir ve Google'ın geliştirdiği grpc yapısıyla çalışır. HTTP/2 üzerinden veri iletimi yapmaktadır.
+
+Product Servisi
+Tanım: Ürün servisi, Clean Architecture ve MediatR tasarım deseni ile geliştirilmiş bir projedir. Asp.net Core 7 ve Entity Framework Core kullanılmıştır.
+
+ShoppingCart Servisi
+Tanım: Sepet servisi, Clean Architecture ve MediatR tasarım deseni ile geliştirilmiş bir projedir. Asp.net Core 7 ve Entity Framework Core kullanılmıştır.
+
+ApiGateway Servisi
+Tanım: Bu servis, Ocelot kullanılarak geliştirilmiştir. ApiGateway Servisi, mikroservisler arasında iletişimi sağlar ve istemcilere tek bir API sunar. Ocelot, bu işlevselliği yönetmek ve yapılandırmak için kullanılır. 
