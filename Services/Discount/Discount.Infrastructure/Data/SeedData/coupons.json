@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "CouponCode": "SAVE10",
+    "DiscountAmount": 10.00,
+    "MinAmount": 50
+  },
+  {
+    "Id": 2,
+    "CouponCode": "FREESHIP",
+    "DiscountAmount": 0.00,
+    "MinAmount": 75
+  },
+  {
+    "Id": 3,
+    "CouponCode": "BIGSALE",
+    "DiscountAmount": 20.00,
+    "MinAmount": 100
+  },
+  {
+    "Id": 4,
+    "CouponCode": "FIRSTORDER",
+    "DiscountAmount": 15.00,
+    "MinAmount": 30
+  },
+  {
+    "Id": 5,
+    "CouponCode": "HOLIDAY25",
+    "DiscountAmount": 25.00,
+    "MinAmount": 80
+  }
+]
