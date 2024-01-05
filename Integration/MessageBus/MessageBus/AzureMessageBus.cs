@@ -1,6 +1,9 @@
-﻿using Azure.Messaging.ServiceBus;
+﻿using Azure.Messaging;
+using Azure.Messaging.ServiceBus;
 using MessageBus.ConfigurationModel;
+using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Options;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -32,6 +35,17 @@ namespace MessageBus
 
             await sender.SendMessageAsync(finalMessage);
             await client.DisposeAsync();
+        }
+
+        public async Task PublishTopicMessage(object messageContent, string topic_queue_Name, string messageType)
+        {
+            ITopicClient client = new TopicClient(_configuration.ConnectionString, topic_queue_Name);
+            var byteArr = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messageContent));
+
+            var message = new Message(byteArr);
+            message.UserProperties["MessageType"] = messageType;
+
+            await client.SendAsync(message);
         }
     }
 }

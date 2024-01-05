@@ -4,6 +4,8 @@ using Discount.API.Middleware;
 using Discount.Application.Extensions;
 using Discount.Infrastructure.Data;
 using Discount.Infrastructure.Extensions;
+using MessageBus;
+using MessageBus.ConfigurationModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Serilog;
@@ -14,7 +16,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfraServices(builder.Configuration);
 builder.Services.AddControllers();
-
+builder.Services.Configure<ServiceBusConfiguration>(builder.Configuration.GetSection("AzureServiceBus"));
+builder.Services.AddScoped<IMessageBus, AzureMessageBus>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {

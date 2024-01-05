@@ -2,6 +2,7 @@
 using Discount.Application.Queries;
 using Discount.Application.Response;
 using MediatR;
+using MessageBus;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,14 @@ namespace Discount.API.Controllers
     {
         private readonly IMediator _mediator;
         private readonly ILogger<CouponController> _logger;
-
-        public CouponController(IMediator mediator, ILogger<CouponController> logger)
+        private readonly IMessageBus _messageBus;
+        private readonly IConfiguration _configuration;
+        public CouponController(IMediator mediator, ILogger<CouponController> logger, IMessageBus messageBus, IConfiguration configuration)
         {
             _mediator = mediator;
             _logger = logger;
+            _messageBus = messageBus;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -48,10 +52,11 @@ namespace Discount.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ADMIN")]
+       // [Authorize(Roles = "ADMIN")]
         public async Task<BaseResponse> Post([FromBody] CreateCouponCommand couponCommand)
         {
             var result = await _mediator.Send(couponCommand);
+            await _messageBus.PublishTopicMessage(couponCommand.CouponCode, _configuration.GetValue<string>("TopicAndSubNames:CuoponTopic"), "CouponCreated");
             return result;
         }
         [HttpPut]
@@ -63,11 +68,12 @@ namespace Discount.API.Controllers
         }
         [HttpDelete]
         [Route("{id:int}")]
-        [Authorize(Roles = "ADMIN")]
+       // [Authorize(Roles = "ADMIN")]
         public async Task<BaseResponse> Delete(int id)
         {
             var query = new DeleteCouponByIdQuery(id);
             var result = await _mediator.Send(query);
+            await _messageBus.PublishTopicMessage(id, _configuration.GetValue<string>("TopicAndSubNames:CuoponTopic"), "CouponDeleted");
             return result;
         }
     }
