@@ -37,4 +37,4 @@ Asp.net Core 7,Entity Framework Core, Microsoft Identity, Azure Servis Bus, Seri
 
 **Tanım:** Bu servis, Ocelot kullanılarak geliştirilmiştir. ApiGateway Servisi, mikroservisler arasında iletişimi sağlar ve istemcilere tek bir API sunar. Ocelot, bu işlevselliği yönetmek ve yapılandırmak için kullanılır.
 
-Bu proje, mikroservis mimarisi ile geliştirilmiş ve modern teknolojilerle uyumlu bir yapıya sahiptir. Her bir servis, özel ihtiyaçlara yönelik olarak tasarlanmış ve birbiriyle etkileşimde bulunabilme yeteneğine sahiptir. Detaylar ve kullanılan teknolojilerle ilgili daha fazla bilgi için ilgili servislerin belgelendirme ve kaynak kodlarına başvurabilirsiniz.
+Bu proje, mikroservis mimarisi ile geliştirilmiş ve modern teknolojilerle uyumlu bir yapıya sahiptir.
