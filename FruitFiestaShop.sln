@@ -63,7 +63,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GatewaySolution", "Gateway\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrpcCoupon", "GrpcCoupon", "{F0D3858B-5E7B-4082-819B-775B1E4B0AC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcCouponService", "Services\GrpcCoupon\GrpcCouponService\GrpcCouponService.csproj", "{C579228A-7366-4934-9BA1-8A1422C92720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcCouponService", "Services\GrpcCoupon\GrpcCouponService\GrpcCouponService.csproj", "{C579228A-7366-4934-9BA1-8A1422C92720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
